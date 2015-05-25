@@ -47,7 +47,7 @@ sub obtieneDESC
    if ( $version =~ /VERSION\s+3/ ) {
      $fase = 'LeeCategorias';
    } else {
-     die "El fichero no es un trapd.conf";
+     die "Not a trapd.conf 3.x file";
    }
 
    while ( <> ) {
@@ -154,20 +154,20 @@ sub obtieneDESC
 
   print OFD '<html>
   <head>
-   <title>Configuracion de trapd.con</title>
+   <title>Trapd.conf configuration dumo</title>
   </head>
   <body bgcolor=#ffffff>
-  <h1>Volcado del trapd.conf de OpenView</h1>
+  <h1>Openview nnmi trapd.conf dump</h1>
   <hr>
-  <a href="#eventos">[Acciones]</a>&nbsp
-  <a href="#categorias">[Categorias]</a>&nbsp
+  <a href="#eventos">[Actions]</a>&nbsp
+  <a href="#categorias">[Categories]</a>&nbsp
   <a href="#OIDs">[OIDs]</a>&nbsp
-  <a href="#eventos">[Eventos]</a>
+  <a href="#eventos">[Events]</a>
   <hr>';
 
   # Volcamos las acciones en formato HTML
 
-  print OFD '<a name="acciones"><h2>Acciones</h2></a><blockquote>';
+  print OFD '<a name="acciones"><h2>Actions</h2></a><blockquote>';
 
   my $i;
 
@@ -182,9 +182,9 @@ sub obtieneDESC
   print OFD '</blockquote>';
 
   # Volcamos Categorias
-  print OFD '<hr><a href="#eventos">[Acciones]</a>&nbsp<a href="#categorias">[Categorias]</a>&nbsp<a href="#OIDs">[OIDs]</a>&nbsp<a href="#eventos">[Eventos]</a>\n';
+  print OFD '<hr><a href="#eventos">[Actions]</a>&nbsp<a href="#categorias">[Categories]</a>&nbsp<a href="#OIDs">[OIDs]</a>&nbsp<a href="#eventos">[Events]</a>\n';
 
-  print OFD '<a name="categorias"><h2>Categorias</h2></a><blockquote>';
+  print OFD '<a name="categorias"><h2>Categories</h2></a><blockquote>';
 
   foreach $i (sort keys %category) {
      print OFD "<h3>$category{$i}{'CATEGORY'} ($category{$i}{'NEVENTS'} eventos)</h3><br>";
@@ -198,10 +198,10 @@ sub obtieneDESC
 
   # Volcamos OIDs
 
-  print OFD '<hr><a href="#eventos">[Acciones]</a>&nbsp<a href="#categorias">[Categorias]</a>&nbsp<a href="#OIDs">[OIDs]</a>&nbsp<a href="#eventos">[Eventos]</a>\n';
+  print OFD '<hr><a href="#eventos">[Actions]</a>&nbsp<a href="#categorias">[Categories]</a>&nbsp<a href="#OIDs">[OIDs]</a>&nbsp<a href="#eventos">[Events]</a>\n';
   print OFD '<a name="OIDs"><h2>OIDs</h2></a><blockquote>';
 
-  print OFD '<table align="center" border="1" summary="OID alias definidos en trapd.conf">';
+  print OFD '<table align="center" border="1" summary="OID alias defined in trapd.conf">';
   print OFD "\t<caption>OID Alias</caption>\n";
   print OFD "\t<tr><th>Alias</th><th>OID</th></tr>\n";
 
@@ -213,8 +213,8 @@ sub obtieneDESC
 
   # Volcamos eventos
 
-  print OFD '<hr><a href="#eventos">[Acciones]</a>&nbsp<a href="#categorias">[Categorias]</a>&nbsp<a href="#OIDs">[OIDs]</a>&nbsp<a href="#eventos">[Eventos]</a>\n';
-  print OFD '<a name="eventos"><h2>Eventos</h2></a><blockquote>';
+  print OFD '<hr><a href="#eventos">[Actions]</a>&nbsp<a href="#categorias">[Categories]</a>&nbsp<a href="#OIDs">[OIDs]</a>&nbsp<a href="#eventos">[Events]</a>\n';
+  print OFD '<a name="eventos"><h2>Events</h2></a><blockquote>';
 
   foreach $i (keys %event) {
      print OFD "<a name=\"event_$i\">
